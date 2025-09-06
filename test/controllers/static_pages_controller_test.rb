@@ -7,32 +7,41 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end 
 
   test "should get root" do 
-    get root_url 
+    get root_path 
     assert_response :success
-    assert_select "title", "Home | #{@basic_title}"
+    assert_select "title", "Home |#{@basic_title}"
   end 
 
-  test "should get home" do
-    get static_pages_home_url
-    assert_response :success
-    assert_select "title", "Home | #{@basic_title}"
-  end
-
   test "should get help" do
-    get static_pages_help_url
+    get helps_path
     assert_response :success
-    assert_select "title", "Help | #{@basic_title}"
+    assert_select "title", "Help |#{@basic_title}"
   end
 
   test "about" do
-    get static_pages_about_url
+    get about_path
     assert_response :success
-    assert_select "title", "About | #{@basic_title}"
+    assert_select "title", "About |#{@basic_title}"
   end
-  test "about" do
-    get static_pages_about_url
+
+  test "contact" do 
+    get contact_path
     assert_response :success
-    assert_select "title", "About | #{@basic_title}"
+    assert_select "title", "Contact |#{@basic_title}"
   end
-  
+
+  test "layout links" do 
+    get root_path
+    assert_template 'static_pages/home'
+    assert_select 'a[href=?]', root_path, count: 3
+    assert_select 'a[href=?]', about_path
+    assert_select 'a[href=?]', helps_path
+    assert_select 'a[href=?]', contact_path
+    get contact_path
+    assert_select "title", full_title("Contact")
+  end
+
+  test "full title" do 
+    assert_equal full_title("Help"), "Help |Ruby on Rails Tutorial Sample App"  
+  end 
 end
