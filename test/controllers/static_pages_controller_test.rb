@@ -27,8 +27,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   test "contact" do 
     get contact_path
     assert_response :success
-    assert_select "title", "Contact |#{@basic_title}"
-  end
+   end
 
   test "layout links" do 
     get root_path

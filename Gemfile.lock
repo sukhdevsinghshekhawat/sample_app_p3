@@ -82,6 +82,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     ansi (1.5.0)
     base64 (0.3.0)
+    bcrypt (3.1.13)
     benchmark (0.4.1)
     bigdecimal (3.2.3)
     bindex (0.8.1)
@@ -312,6 +313,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
+  bcrypt (= 3.1.13)
   bootsnap
   bootstrap (~> 5.3.0)
   capybara
