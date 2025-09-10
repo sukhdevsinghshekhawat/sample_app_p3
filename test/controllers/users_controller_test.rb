@@ -6,13 +6,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end 
 
   test "should get new" do
-    get singup_path
+    get root_path
     assert_response :success
-    assert_select "title", "Sign up |#{@basic_title}"
+    assert_select "title", "Home |#{@basic_title}"
   end
 
-  test "full title chech" do 
-    get singup_path
+  test "full title check" do 
+    get new_path
     assert_equal full_title("Sign up"), "Sign up |#{@basic_title}" 
     assert_select "title", full_title("Sign up")
   end

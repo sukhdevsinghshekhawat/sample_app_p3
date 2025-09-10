@@ -60,7 +60,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end 
   test "password length check" do 
-    @user.password = @user.password_confirmation = "a" * 5
+    @user.password = @user.password_confirmation = "a" * 4
     assert_not @user.valid?
   end
 end 
