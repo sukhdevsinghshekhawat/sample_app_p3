@@ -21,6 +21,16 @@ class SignUpTest < ActionDispatch::IntegrationTest
     end 
     follow_redirect!
     assert_template 'users/show'
-    assert_not flash.empty?
+    assert_not  flash.empty?
+  end 
+
+  test "user login successfully" do 
+    get new_path
+    assert_difference 'User.count', 1 do 
+      post users_path, params: {user: {name: "sumansingh", email: "suk00@gmail.com", password: "123456", password_confirmation: "123456" } }
+    end 
+    follow_redirect!
+    assert_template 'users/show'
+    assert is_logged_in?
   end 
 end
