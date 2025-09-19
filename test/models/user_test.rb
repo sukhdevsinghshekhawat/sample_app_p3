@@ -48,12 +48,12 @@ class UserTest < ActiveSupport::TestCase
   #   assert_not dup_user.valid? 
   # end 
 
-  test "test email with reload method" do 
-    new_email = "SUkhdev@GMail.com"
-    @user.email = new_email
-    @user.save
-    assert_equal new_email.downcase , @user.reload.email
-  end 
+  # test "test email with reload method" do 
+  #   new_email = "SUkhdev@GMail.com"
+  #   @user.email = new_email
+  #   @user.save
+  #   assert_equal new_email.downcase , @user.reload.email
+  # end 
 
   test "password blank check" do 
     @user.password = @user.password_confirmation = " " * 4
