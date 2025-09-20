@@ -8,6 +8,9 @@ gem "rails", "~> 7.1.5", ">= 7.1.5.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Gemfile
+gem 'faker'
+gem 'will_paginate', '~> 3.3.0'
+gem 'bootstrap-will_paginate', '~> 1.0.0' # agar bootstrap style chahiye
 gem 'bootstrap', '~> 5.3.0'
 gem 'sassc-rails', '~> 2.1'
 # Or the desired version

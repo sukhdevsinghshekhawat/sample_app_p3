@@ -1,0 +1,17 @@
+<% provide(:title, "index") %>
+<div class="col-md-12">
+	<div class="row">
+		<div class="col-md-6 mx-auto">
+			<table class="table">
+			 	<thead>
+			 		<th>icon</th>
+			 		<th>name </th>
+			 	</thead>
+			 	<tbody>
+				 	<%= render @users %>
+			 	</tbody>
+			</table>
+      <%= will_paginate %>
+		</div>
+	</div>
+</div>

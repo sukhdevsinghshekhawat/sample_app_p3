@@ -7,7 +7,7 @@ class User < ApplicationRecord
   Regex = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: {maximum: 45}, format: {with: Regex}, uniqueness: true
   has_secure_password
-  validates :password, length: {minimum: 5}, presence: true
+  validates :password, length: {minimum: 5}, presence: true, allow_nil: true
   
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
@@ -32,4 +32,3 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 end
-
