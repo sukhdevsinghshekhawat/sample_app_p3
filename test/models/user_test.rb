@@ -41,20 +41,6 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-  # test "email casesensitive check" do 
-  #   dup_user = @user.dup
-  #   dup_user.email = @user.email.upcase
-  #   @user.save
-  #   assert_not dup_user.valid? 
-  # end 
-
-  # test "test email with reload method" do 
-  #   new_email = "SUkhdev@GMail.com"
-  #   @user.email = new_email
-  #   @user.save
-  #   assert_equal new_email.downcase , @user.reload.email
-  # end 
-
   test "password blank check" do 
     @user.password = @user.password_confirmation = " " * 4
     assert_not @user.valid?
@@ -62,5 +48,9 @@ class UserTest < ActiveSupport::TestCase
   test "password length check" do 
     @user.password = @user.password_confirmation = "a" * 4
     assert_not @user.valid?
+  end
+
+  test "authenticated? should return false for a user with nil digest" do
+    assert_not @user.authenticated?(:remember, "")
   end
 end 

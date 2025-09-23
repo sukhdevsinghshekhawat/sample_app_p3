@@ -14,7 +14,7 @@ module SessionsHelper
 			@current_user ||= User.find_by(id: session[:user_id])
 		elsif(user_id = cookies.encrypted[:user_id])
 			user = User.find_by(id: user_id)
-			if user && user.authenticated?(cookies[:remember_token])
+			if user && user.authenticated?(:remember, cookies[:remember_token])
 				login user
 				@current_user = user 
 			end
@@ -45,8 +45,8 @@ module SessionsHelper
   	session[:forwarding_url] = request.original_url if request.get?
   end 
 
-  def backup_back(defauls)
-  	redirect_to(session[:forwarding_url] || defauls)
+  def backup_back(defaults)
+  	redirect_to(session[:forwarding_url] || defaults)
   	session.delete(:forwarding_url)
   end 
 end

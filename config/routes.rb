@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
 
   get '/new', to: 'users#new'
   
@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get '/help', to: 'static_pages#help', as: 'helps'
   get '/about', to: 'static_pages#about'
   get '/contact', to: 'static_pages#contact'
+
+  resources :account_activations, only: [:edit]
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

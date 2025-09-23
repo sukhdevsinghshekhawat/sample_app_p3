@@ -3,7 +3,7 @@ require "test_helper"
 class UsersControllerTest < ActionDispatch::IntegrationTest
   def setup
     @basic_title = "Ruby on Rails Tutorial Sample App"
-    @user = User.create!(name: "Mic Example", email: "michael@example.com",password: "password", password_confirmation: "password", admin: true)
+    @user = User.create!(name: "Mic Example", email: "michael@example.com",password: "password", password_confirmation: "password", admin: true, activated: true)
     @otheruser = User.create!(name: "Example", email: "ankur11@example.com",password: "password", password_confirmation: "password")
   end 
 
@@ -19,7 +19,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", full_title("Sign upform")
   end
 
-  test "should g o indexpage without login" do 
+  test "should go indexpage without login" do 
     get users_path
     assert_redirected_to login_url
   end 
@@ -49,7 +49,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_no_difference 'User.count' do
       delete user_path(@user)
     end
-    assert_redirected_to users_path
+    assert_redirected_to login_path
   end
 
   test "delete as a admin" do 
