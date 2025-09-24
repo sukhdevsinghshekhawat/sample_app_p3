@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:session][:email].downcase)
     if @user &.authenticate(params[:session][:password])
-      if @user.activated?
+      if@user.activated?
         login @user
         params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
         backup_back(@user)
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       end 
     else 
       flash.now[:danger] = "invalid Combination"
-      render 'new'
+      render 'new', status: :unprocessable_entity
     end
   end 
 

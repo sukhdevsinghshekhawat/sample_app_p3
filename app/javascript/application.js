@@ -2,5 +2,8 @@
 // import "@hotwired/turbo-rails"
 // import "controllers"
 // import "bootstrap"
+console.log("hello sukhdev")
 import "@hotwired/turbo-rails"
-import "@rails/ujs"  // optional in Rails 7, mostly Turbo handles DELETE
+// import "@rails/ujs"
+import Rails from "@rails/ujs"
+Rails.start()
