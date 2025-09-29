@@ -16,5 +16,10 @@ activated_at: Time.zone.now)
 	password = "123456"
    
 	User.create!(name: name, email: email, password: password, password_confirmation: password, activated: true,
-    activated_at: Time.zone.now))
+    activated_at: Time.zone.now)
 end 
+users = User.order(:created_at).take(6)   # pehle 6 users select kiye
+50.times do                              
+  content = Faker::Lorem.sentence(word_count: 5)   # random sentence generate
+  users.each { |user| user.microposts.create!(content: content) }
+end

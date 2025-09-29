@@ -10,6 +10,9 @@ gem "sprockets-rails"
 # Gemfile
 gem 'faker'
 gem 'will_paginate', '~> 3.3.0'
+gem 'active_storage_validations', '0.8.2'
+gem 'image_processing', '~> 1.12'
+gem 'mini_magick', '~> 4.11'
 gem 'bootstrap-will_paginate', '~> 1.0.0' # agar bootstrap style chahiye
 gem 'bootstrap', '~> 5.3.0'
 gem 'sassc-rails', '~> 2.1'

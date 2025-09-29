@@ -186,3 +186,67 @@ input {
  width: auto;
  margin-left: 0;
 }
+/*micropost css */
+.microposts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.microposts li {
+  padding: 15px 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.microposts .gravatar {
+  float: left;
+  margin-right: 15px;
+  margin-top: 5px;
+  border-radius: 50%; /* circular gravatar */
+}
+
+.microposts .user {
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+.microposts .content {
+  display: block;
+  margin-left: 60px;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.microposts .content img {
+  display: block;
+  max-width: 100%;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+.microposts .timestamp {
+  color: #888;
+  display: block;
+  margin-left: 60px;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+aside textarea {
+  height: 100px;
+  margin-bottom: 10px;
+  width: 100%;
+  resize: vertical;
+}
+
+span.image {
+  margin-top: 10px;
+}
+
+span.image input {
+  border: 0;
+  display: block;
+  margin-top: 5px;
+}

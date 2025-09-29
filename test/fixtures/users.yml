@@ -11,6 +11,12 @@ ajit:
   password_digest: <%= User.digest('password') %> 
   activated: true
   activated_at: <%= Time.zone.now %>
+amit:
+  name: "amit"
+  email: "amit@gmail.com"
+  password_digest: <%= User.digest('password') %> 
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% 30.times do |n| %>
 user_<%= "#{n}" %>:
   name: <%= "ajit#{n}" %>

@@ -1,0 +1,19 @@
+most_recent3:
+  content: "Writing a short test"
+  user: sukhdev
+  created_at: <%= 6.hours.ago %>
+
+most_recent2:
+  content: "Writing a short test"
+  user: sukhdev
+  created_at: <%= 5.hours.ago %>
+
+most_recent1:
+  content: "Writing a short test"
+  user: sukhdev
+  created_at: <%= 4.hours.ago %>
+
+most_recent:
+  content: "Writing a short test"
+  user: sukhdev
+  created_at: <%= 3.hours.ago %>

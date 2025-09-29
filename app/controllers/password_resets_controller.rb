@@ -16,7 +16,7 @@ class PasswordResetsController < ApplicationController
         redirect_to root_url
     else
       flash.now[:danger] = "Email address not found"
-      render 'new', status: :unprocessable_entity
+      render 'new', status: :unprocessable_content
     end
   end
 
@@ -37,7 +37,7 @@ class PasswordResetsController < ApplicationController
       flash[:success] = "Password has been reset."
       redirect_to @user
     else
-      render 'edit', status: :unprocessable_entity
+      render 'edit', status: :unprocessable_content
     end
   end
 
