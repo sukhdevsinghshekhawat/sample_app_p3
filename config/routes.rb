@@ -13,7 +13,12 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :account_activations, only: [:edit]
-  resources :users
+  resources :users do 
+    member do 
+      get :following, :followers
+    end
+  end
+  resources :relationships, only: [:create, :destroy]
   resources :microposts, only: [:create, :destroy]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

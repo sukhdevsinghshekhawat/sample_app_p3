@@ -1,0 +1,9 @@
+one:
+ follower: sukhdev
+ followed: ajit
+two:
+ follower: sukhdev
+ followed: amit
+three:
+  follower: ajit
+  followed: sukhdev

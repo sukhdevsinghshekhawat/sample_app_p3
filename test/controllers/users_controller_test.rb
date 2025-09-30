@@ -81,4 +81,25 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get users_path
     assert_select 'input[value=?]', 'delete', count: 0
   end
+
+  test "should follow and unfollow a user" do
+    michael = users(:sukhdev)
+    archer = users(:ankur)
+    assert_not michael.following?(archer)
+    michael.follow(archer)
+    assert michael.following?(archer)
+    assert archer.followers.include?(michael)
+    michael.unfollow(archer)
+    assert_not michael.following?(archer)
+  end
+
+  test "should redirect following when not logged in" do
+    get following_user_path(@user)
+    assert_redirected_to login_url
+  end
+
+  test "should redirect followers when not logged in" do
+    get followers_user_path(@user)
+    assert_redirected_to login_url
+  end
 end

@@ -3,9 +3,7 @@
   <td> <%= gravatar_for(user) %> </td>
   <td><%= link_to user.name, user %> 
 	  <% if current_user.admin? && !current_user_check?(user) %>
-     |<%= form_with url: user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class: "d-inline" do %>
-        <%= submit_tag "Delete", class: "btn btn-danger btn-sm" %>
-      <% end %>
+     |<%= button_to "delete", user_path(user), method: :delete, class: "btn btn-danger" %>
     <% end %>
 	</td>
 </tr>
